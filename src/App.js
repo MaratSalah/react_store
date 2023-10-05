@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './bootstrap/bootstrap.min.css';
+import React, { useState } from 'react';
+import MainNav from './bin/MainNav.js';
+import ShowCase from './bin/ShowCase';
+import ClientsCart from './bin/ClientsCart';
 
-function App() {
+const App = (props) => {
+  const [products, setProducts] = useState([
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+  ]);
+
+  const [showCaseVision, setShowCaseVision] = useState('false');
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <MainNav showCaseVision={showCaseVision} setShowCaseVision={setShowCaseVision}></MainNav>
+      <ShowCase products={products}></ShowCase>
+      <ClientsCart showCaseVision={showCaseVision} setShowCaseVision={setShowCaseVision}></ClientsCart>
+    </>
+    );
 }
 
 export default App;
