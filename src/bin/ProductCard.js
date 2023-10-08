@@ -1,24 +1,51 @@
+/* eslint-disable react/prop-types */
+
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import update from 'immutability-helper';
 
 const ProductCard = (props) => {
-  const picOfProduct = props.product;
+  const { img: picOfProduct } = props.product;
+  const { product, i, products, setProducts} = props;
+
+  const onClickPlus = () => {
+    const { count } = product;
+    const newProducts = update(products, { [i]: { count: { $set: count + 1 } } });
+    setProducts(newProducts);
+  }
+
+  const onClickMinus = () => {
+    const { count } = product;
+    if (count > 0) {
+      const newProducts = update(products, { [i]: { count: { $set: count - 1 } } });
+      setProducts(newProducts);
+    }
+  }
 
   return (
     <Card style={{ width: '16rem' }}>
-      <Card.Img variant="top" src={process.env.PUBLIC_URL + `/img/${picOfProduct}`} />
+      <Card.Img style={{ height: '24rem' }} variant="top" src={process.env.PUBLIC_URL + `/img/${picOfProduct}`} />
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>
           Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          bulk of the content.
         </Card.Text>
-        <Button className="mx-1" variant="outline-primary">Add to cart</Button>
-        <ButtonGroup aria-label="Basic example">
-          <Button variant="outline-primary">{'<'}</Button>
-          <Button variant="outline-primary">0</Button>
-          <Button variant="outline-primary">{'>'}</Button>
+        <Card.Text>
+          {`${product.cost}$`}
+        </Card.Text>
+        <Card.Link className='me-1'>
+          {`${product.count * product.cost}$`}
+        </Card.Link>
+        <Button variant="outline-primary">
+          x
+        </Button>
+        <ButtonGroup className='float-end' aria-label="Basic example">
+          <Button onClick={onClickPlus} variant="outline-primary">{'+'}</Button>
+          <Button variant="outline-primary">{product.count}</Button>
+          <Button onClick={onClickMinus} variant="outline-primary">{'-'}</Button>
         </ButtonGroup>
       </Card.Body>
     </Card>

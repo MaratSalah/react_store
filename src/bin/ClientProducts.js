@@ -17,12 +17,13 @@ const groupOfCols = (products, setProducts) => {
   const result = [];
   let innerResult = [];
   for (let i = 0; i < products.length; i += 1) {
-    if (innerResult.length < 4) {
-      innerResult.push(col(products[i], i, setProducts, products));
-    } else if (innerResult.length === 4) {
+    const product = products[i];
+    if (innerResult.length < 4 && product.count !== 0) {
+      innerResult.push(col(product, i, setProducts, products));
+    } else if (innerResult.length === 4 && product.count !== 0) {
       result.push(innerResult);
       innerResult = [];
-      innerResult.push(col(products[i], i, setProducts, products));
+      innerResult.push(col(product, i, setProducts, products));
     }
 
     if (i === products.length - 1) {
