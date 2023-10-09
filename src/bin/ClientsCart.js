@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import React from 'react';
 
 const ClientsCart = (props) => {
-  const { showCaseVision, setShowCaseVision, children } = props;
+  const { showCaseVision, setShowCaseVision, children, products } = props;
 
   let show = false;
 
@@ -25,6 +25,7 @@ const ClientsCart = (props) => {
           {children}
         </Modal.Body>
         <Modal.Footer>
+          <span>Total sum: {products.reduce((acc, product) => product.cost + acc, 0)}</span>
           <Button variant="outline-secondary">
             Buy
           </Button>

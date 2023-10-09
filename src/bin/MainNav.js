@@ -17,11 +17,11 @@ const MainNav = (props) => {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" bg='primary'>
       <Container>
-        <Navbar.Brand href="#home">AutoStore</Navbar.Brand>
+        <span className='text-info'>AutoStore</span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Button onClick={onClickButton} className="d-flex justify-content-end" variant='outline-primary'>Your Cart</Button>
+        <Button onClick={onClickButton} className="d-flex justify-content-end" variant='outline-info'>Your Cart</Button>
       </Container>
     </Navbar>
   );

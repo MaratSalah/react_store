@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './main.scss';
 import React, { useState } from 'react';
 import MainNav from './bin/MainNav.js';
 import ShowCase from './bin/ShowCase';

@@ -24,6 +24,11 @@ const ProductCard = (props) => {
     }
   }
 
+  const onClickRemove = () => {
+    const newProducts = update(products, { [i]: { count: { $set: 0 } } });
+    setProducts(newProducts);
+  }
+
   return (
     <Card style={{ width: '16rem' }}>
       <Card.Img style={{ height: '24rem' }} variant="top" src={process.env.PUBLIC_URL + `/img/${picOfProduct}`} />
@@ -36,16 +41,18 @@ const ProductCard = (props) => {
         <Card.Text>
           {`${product.cost}$`}
         </Card.Text>
-        <Card.Link className='me-1'>
-          {`${product.count * product.cost}$`}
-        </Card.Link>
-        <Button variant="outline-primary">
-          x
-        </Button>
-        <ButtonGroup className='float-end' aria-label="Basic example">
-          <Button onClick={onClickPlus} variant="outline-primary">{'+'}</Button>
-          <Button variant="outline-primary">{product.count}</Button>
-          <Button onClick={onClickMinus} variant="outline-primary">{'-'}</Button>
+        <ButtonGroup role="group" aria-label="sum">
+          <Button variant='info'>
+            {`${product.count * product.cost}$`}
+          </Button>
+          <Button className='' onClick={onClickRemove} variant="info">
+            x
+          </Button>
+        </ButtonGroup>
+        <ButtonGroup className='float-end' role="group" aria-label="plus minus count">
+          <Button onClick={onClickPlus} variant="info">{'+'}</Button>
+          <Button variant="info">{product.count}</Button>
+          <Button onClick={onClickMinus} variant="info">{'-'}</Button>
         </ButtonGroup>
       </Card.Body>
     </Card>
