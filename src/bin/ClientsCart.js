@@ -25,7 +25,7 @@ const ClientsCart = (props) => {
           {children}
         </Modal.Body>
         <Modal.Footer>
-          <span>Total sum: {products.reduce((acc, product) => product.cost + acc, 0)}</span>
+          <span>Total sum: {products.reduce((acc, product) => product.cost * product.count + acc, 0)}</span>
           <Button variant="outline-secondary">
             Buy
           </Button>
