@@ -42,17 +42,17 @@ const ProductCard = (props) => {
           {`${product.cost}$`}
         </Card.Text>
         <ButtonGroup role="group" aria-label="sum">
-          <Button variant='info'>
+          <Button variant='outline-secondary'>
             {`${product.count * product.cost}$`}
           </Button>
-          <Button className='' onClick={onClickRemove} variant="info">
+          <Button className='' onClick={onClickRemove} variant="outline-secondary">
             x
           </Button>
         </ButtonGroup>
         <ButtonGroup className='float-end' role="group" aria-label="plus minus count">
-          <Button onClick={onClickPlus} variant="info">{'+'}</Button>
-          <Button variant="info">{product.count}</Button>
-          <Button onClick={onClickMinus} variant="info">{'-'}</Button>
+          <Button onClick={onClickPlus} variant="outline-secondary">{'+'}</Button>
+          <Button variant="outline-secondary">{product.count}</Button>
+          <Button onClick={onClickMinus} variant="outline-secondary">{'-'}</Button>
         </ButtonGroup>
       </Card.Body>
     </Card>

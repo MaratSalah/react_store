@@ -6,7 +6,8 @@ $brand-theme-colors: (
   "success": #D6CC99,
   "danger": #C51605,
   "warning": #E7B10A,
-  "info": #FFF2D8,
+  "info": #FFFFFF
+  ,
 );
 
 $primary:   map.get($brand-theme-colors, "primary");

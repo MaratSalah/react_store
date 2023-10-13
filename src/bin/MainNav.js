@@ -19,7 +19,7 @@ const MainNav = (props) => {
   return (
     <Navbar expand="lg" bg='primary'>
       <Container>
-        <span className='text-info'>AutoStore</span>
+        <Navbar.Brand className="text-info">AutoStore</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Button onClick={onClickButton} className="d-flex justify-content-end" variant='outline-info'>Your Cart</Button>
       </Container>
