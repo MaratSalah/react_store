@@ -33,10 +33,10 @@ const ProductCard = (props) => {
           Some quick example text to build on the card title and make up the
           bulk of the content.
         </Card.Text>
-        <Card.Text>
+        <Card.Text className="d-flex flex-row-reverse mb-3">
         {`${product.count * product.cost}$`}
         </Card.Text>
-        <ButtonGroup role="group" aria-label="plus minus count">
+        <ButtonGroup className='float-end' role="group" aria-label="plus minus count">
           <Button onClick={onClickMinus} variant="outline-secondary">{'-'}</Button>
           <Button variant="outline-secondary">{product.count}</Button>
           <Button onClick={onClickPlus} variant="outline-secondary">{'+'}</Button>
