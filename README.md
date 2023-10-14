@@ -1,0 +1,1 @@
+Store with React. Builded with Create-React-App.
