@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
-
-import './main.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react';
-import MainNav from './bin/MainNav';
-import ShowCase from './bin/ShowCase';
-import ClientsCart from './bin/ClientsCart';
-import ClientProducts from './bin/ClientProducts';
+import './main.scss';
+import MainPage from './pages/MainPage';
+import Cart from './pages/Cart';
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -21,16 +19,14 @@ const App = () => {
     { count: 0, img: '2.jpg', cost: 200000, },
   ]);
 
-  const [showCaseVision, setShowCaseVision] = useState('false');
-
   return (
-    <>
-      <MainNav showCaseVision={showCaseVision} setShowCaseVision={setShowCaseVision}></MainNav>
-      <ShowCase products={products} setProducts={setProducts}></ShowCase>
-      <ClientsCart products={products} showCaseVision={showCaseVision} setShowCaseVision={setShowCaseVision}>
-        <ClientProducts products={products} setProducts={setProducts}></ClientProducts>
-      </ClientsCart>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage setProducts={setProducts} products={products}></MainPage>} />
+        <Route path='Cart' element={<Cart setProducts={setProducts} products={products}></Cart>} />
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 

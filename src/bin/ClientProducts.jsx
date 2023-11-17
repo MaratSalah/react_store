@@ -41,8 +41,7 @@ const groupOfRows = (products, setProducts) => {
   });
 };
 
-const ShowCase = (props) => {
-  // const data = useContext(ProductsContext);
+const CartShowCase = (props) => {
   const { products, setProducts } = props;
 
   return (
@@ -52,4 +51,4 @@ const ShowCase = (props) => {
   );
 };
 
-export default ShowCase;
+export default CartShowCase;
