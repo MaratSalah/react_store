@@ -8,7 +8,7 @@ import update from 'immutability-helper';
 
 const ProductCard = (props) => {
   const { img: picOfProduct } = props.product;
-  const { product, i, products, setProducts} = props;
+  const { product, i, products, setProducts } = props;
 
   const onClickPlus = () => {
     const { count } = product;
@@ -34,12 +34,12 @@ const ProductCard = (props) => {
           bulk of the content.
         </Card.Text>
         <Card.Text className="d-flex flex-row-reverse mb-3">
-        {`${product.count * product.cost}$`}
+          {`${product.count * product.cost}$`}
         </Card.Text>
         <ButtonGroup className='float-end' role="group" aria-label="plus minus count">
-          <Button onClick={onClickMinus} variant="outline-secondary">{'-'}</Button>
-          <Button variant="outline-secondary">{product.count}</Button>
-          <Button onClick={onClickPlus} variant="outline-secondary">{'+'}</Button>
+          <Button onClick={onClickMinus} variant="outline-primary">{'-'}</Button>
+          <Button variant="outline-primary">{product.count}</Button>
+          <Button onClick={onClickPlus} variant="outline-primary">{'+'}</Button>
         </ButtonGroup>
       </Card.Body>
     </Card>
