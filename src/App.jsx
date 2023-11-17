@@ -2,7 +2,7 @@
 
 import './main.scss';
 import React, { useState } from 'react';
-import MainNav from './bin/MainNav.js';
+import MainNav from './bin/MainNav';
 import ShowCase from './bin/ShowCase';
 import ClientsCart from './bin/ClientsCart';
 import ClientProducts from './bin/ClientProducts';

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { uniqueId } from "lodash";
-import ProductInCart from "./ProductInCart.js";
+import ProductInCart from "./ProductInCart";
 
 const col = (product, i, setProducts, products) => {
   return <Col className="mt-3" md={6} lg={4} xl={3} key={uniqueId()}>
@@ -35,7 +35,7 @@ const groupOfCols = (products, setProducts) => {
 
 const groupOfRows = (products, setProducts) => {
   const dataOfCols = groupOfCols(products, setProducts);
-  
+
   return dataOfCols.map((group) => {
     return <Row key={uniqueId()}>{group.map((col) => col)}</Row>
   });
@@ -43,7 +43,7 @@ const groupOfRows = (products, setProducts) => {
 
 const ShowCase = (props) => {
   // const data = useContext(ProductsContext);
-const { products, setProducts } = props;
+  const { products, setProducts } = props;
 
   return (
     <Container>
