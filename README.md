@@ -1,1 +1,1 @@
-Store with React. Builded with Create-React-App.
+Store with React + React Router. Builded with Create-React-App.
