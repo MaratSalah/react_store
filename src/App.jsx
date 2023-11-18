@@ -22,8 +22,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainPage setProducts={setProducts} products={products}></MainPage>} />
-        <Route path='Cart' element={<Cart setProducts={setProducts} products={products}></Cart>} />
+        <Route path='react_store' element={<MainPage setProducts={setProducts} products={products}></MainPage>} />
+        <Route path='cart' element={<Cart setProducts={setProducts} products={products}></Cart>} />
+        <Route path='*' element={<span>Error 404</span>}></Route>
       </Routes>
     </BrowserRouter>
 
